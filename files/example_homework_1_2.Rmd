@@ -1,0 +1,50 @@
+---
+title: "Interesting R Examples"
+author: "Duygu Can - BDA 503 - Fall 2017"
+---
+```{r,echo=FALSE,results="hide"}
+library(knitr)
+opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=TRUE)
+```
+
+```{r,echo=FALSE,eval=FALSE}
+rmarkdown::render("/Users/berkorbay/Dropbox/Courses_given/MEF_BDA_503_2017F/Guidelines/example_homework_1.Rmd",output_format="pdf_document")
+rmarkdown::render("/Users/berkorbay/Dropbox/Courses_given/MEF_BDA_503_2017F/Guidelines/example_homework_1.Rmd",output_format="html_document")
+```
+
+1. [An Introduction to Stock Market Data Analysis with R (Part 1)](https://ntguardian.wordpress.com/2017/03/27/introduction-stock-market-data-r-1/)
+
+    This example is important because it shows basic tools for handling and analyzing stock market data with R. The stock data is obtained from [Yahoo! Finance](https://finance.yahoo.com/). Later four prices  for each date (open, high, low, and close) is visualized by **Japanese candlestick plot**. Two transformations are caried out on the raw data: 
+    + Stock's Return
+    + Change of each stock per day
+    
+    Then, the author employs *moving averages* to smooth the series and to identify its trends. It is a nice example to play with time series data but I still think that financial data is boring.
+
+2. [Gender Pay Gap Analysis](http://www.laurenrenaud.com/r-gender-pay-gap/)
+
+    This work investigates whether there is a significant the gender pay gap difference between men and women and the other factors (race, education, marriage, etc.) affecting the gap. It is found that there is actually a significant pay gap between two genders and this gaps varies depending on individual's weight and maritial status. As seen in the figure below, especially over-weighted females are penalyzed beause they do not comply with society's beauty standards.
+    
+    ![Weight vs. Income for men and women](C:\Users\Duygu\Documents\GitHub\pj-cand\files\income_weight.png)
+    World is not just! :(
+    p.s: There is also a nice discussion about how to handle missing values in the data set.
+    
+3. [Guardian data blog — UK general election analysis in R](https://benjaminlmoore.wordpress.com/2014/03/18/guardian-data-blog-uk-elections/)
+    
+    In this example the author analyzes UK's elections of the last thirty years by using the data obtained from [Guardian data blog](https://docs.google.com/spreadsheets/d/1oHcxlAbkTJmqfOxYQM22cvjjjRf5pETIF30x7L-qybc/edit#gid=0). The beauty of this data set is itminimal requirement of data cleaning. The full R code is shared at the end of the block.
+    
+4. [Querying the Bitcoin blockchain with R](http://beautifuldata.net/2015/01/querying-the-bitcoin-blockchain-with-r/)
+  
+    For the ones who are investing in cryptocurrency called Bitcoin, this example mighht be helpfull. With this example you can query the exchange value of Bitcoin vs. EUR, visualize the time-series of the lastest exchange values and draw the resulting network of transactions between addresses (since all the transactions of Bitcoin is back-traceable).
+   
+5. [LOGIT REGRESSION | R DATA ANALYSIS EXAMPLES](https://stats.idre.ucla.edu/r/dae/logit-regression/)
+
+    Actually there are two logistic regression examples in this site but I want to focus on the second one. It investigates the how GRE, GPA scores and prestige of home university of a student affect its admission chance to graduate school. The probility of admission is visualized using **ggplot**. This example might be helpfull once we learn more about *logistic regression* throughout the course.
+    
+# Extra:
+
++ [The Curious Case of the Vanishing Never-AKPers in Southeastern Turkey](https://erikmeyersson.com/2017/04/17/the-curious-case-of-the-vanishing-never-akpers-in-southeastern-turkey/)
+    
+    In this study, scholar Erik Meyersson compares last three elections and the referandum of Turkey on the basis of change in the voter tendencies by region. He defines a group of Kurdish voters as "never AKP voters" based on their behaviour in the previous elections. He investigated vote swing towards AKP in the southeastern area and finds out that the largest pro-AKP swings appear to come from the least pro-AKP areas in the region. This situation is quite strange since among the other districts topping the pro-AKP swing distribution are Cizre, Yuksekova, two heavily damaged districts from the military conflict, and Uludere, the scene of the infamous Roboski strike.
+    
+    
+    
