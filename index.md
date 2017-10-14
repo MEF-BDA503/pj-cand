@@ -2,4 +2,4 @@
 
 ## Week 2 (Oct 10)
 
-+ [Here](files/interesting_examples.html) is my 5 not so interesting R examples. Enjoy!
++ [Here](files/examples_homework1.html) is my 5 not so interesting R examples. Enjoy!
