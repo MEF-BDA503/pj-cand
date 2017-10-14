@@ -24,7 +24,7 @@ rmarkdown::render("/Users/berkorbay/Dropbox/Courses_given/MEF_BDA_503_2017F/Guid
 
     This work investigates whether there is a significant the gender pay gap difference between men and women and the other factors (race, education, marriage, etc.) affecting the gap. It is found that there is actually a significant pay gap between two genders and this gaps varies depending on individual's weight and maritial status. As seen in the figure below, especially over-weighted females are penalyzed beause they do not comply with society's beauty standards.
     
-    ![Weight vs. Income for men and women](C:\Users\Duygu\Documents\GitHub\pj-ihaye\files\income_weight.png)
+    ![Weight vs. Income for men and women](C:\Users\Duygu\Documents\GitHub\pj-cand\files\income_weight.png)
     World is not just! :(
     p.s: There is also a nice discussion about how to handle missing values in the data set.
     
