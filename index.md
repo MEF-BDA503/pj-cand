@@ -3,7 +3,7 @@
 ## Week 6 (Dec 5)
 
 As a requirement for HW3 I worked on "diamonds" data set in ggplot2. My main aim was to estimate the price based on other qualifications of this gem.
-You can see my work [here](files/HW3_Diamonds.html).
+You can see my work [here](F:\DUYGU\MEF_BDA\503\HW3_Diamonds.html).
 
 ## Week 5 (Nov 27)
 
