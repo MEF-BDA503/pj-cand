@@ -130,7 +130,9 @@ $(document).ready(function () {
 library(&quot;corrplot&quot;)</code></pre>
 <pre><code>## Warning: package 'corrplot' was built under R version 3.4.3</code></pre>
 <pre class="r"><code>library(&quot;ggcorrplot&quot;)
-library(&quot;dummies&quot;)</code></pre>
+library(&quot;dummies&quot;)
+library(&quot;pls&quot;)</code></pre>
+<pre><code>## Warning: package 'pls' was built under R version 3.4.3</code></pre>
 <p>The structure of the data can be seen below.</p>
 <pre class="r"><code>data &lt;- diamonds %&gt;% tbl_df()
 glimpse(data)</code></pre>
@@ -294,12 +296,66 @@ summary(survey_pca_wo_price,loadings=TRUE)</code></pre>
 ## colorNum   -0.118 -0.468 -0.751  0.186  0.411                            
 ## cutNum      0.217               -0.450  0.125 -0.853                     
 ## clarityNum  0.285  0.359 -0.616        -0.639</code></pre>
-<p>When we omit the price colon we see that first four components explains 87% of the variance and they are composed of pretty much every thing else left in the set. Including all the factors in the linear regression formula does not make sense, so may be we should stick with results of the correlation matrix. In other words, building a linear model completely based on <em>carat</em> and may be including dimensional variables such as <em>x</em>, <em>y</em> and <em>z</em> as interaction terms.</p>
+<p>When we omit the price colon we see that first four components explains 87% of the variance and they are composed of pretty much every thing else left in the set. Including all the factors in the linear regression formula does not make sense, so may be we should stick on the findings from the correlation matrix. In other words, building a linear model completely based on <em>carat</em> and may be including dimensional variables such as <em>x</em>, <em>y</em> and <em>z</em> as interaction terms.</p>
+</div>
+<div id="principal-component-regression" class="section level2">
+<h2>Principal Component Regression</h2>
+<p>Alternatively, we can run principal component regression (PCR) based on PCA. This model automatically calculates principal components and then use them as predictors to fit the linear model.</p>
+<p>At first, the data set must be splitted into two: one for training, one for testing.</p>
+<pre class="r"><code>set.seed(42)
+diamonds_test &lt;- data %&gt;% mutate(diamond_id = row_number()) %&gt;% 
+    group_by(cut, color, clarity) %&gt;% sample_frac(0.2) %&gt;% ungroup()
+
+diamonds_train &lt;- anti_join(data %&gt;% mutate(diamond_id = row_number()), 
+    diamonds_test, by = &quot;diamond_id&quot;)
+
+dim(diamonds)</code></pre>
+<pre><code>## [1] 53940    10</code></pre>
+<div id="training-the-model" class="section level3">
+<h3>Training the model</h3>
+<p>Inside the model, the data is standartized to prevent the algorithm to be skewed towards predictors that are dominant in absolute scale.</p>
+<pre class="r"><code>pcr_model &lt;- pcr(price~., data = diamonds_train, scale = TRUE, validation = &quot;CV&quot;)
+summary(pcr_model)</code></pre>
+<pre><code>## Data:    X dimension: 43143 24 
+##  Y dimension: 43143 1
+## Fit method: svdpc
+## Number of components considered: 24
+## 
+## VALIDATION: RMSEP
+## Cross-validated using 10 random segments.
+##        (Intercept)  1 comps  2 comps  3 comps  4 comps  5 comps  6 comps
+## CV            4006     2398     2158     2022     2015     2013     2001
+## adjCV         4006     2398     2158     2022     2015     2013     2001
+##        7 comps  8 comps  9 comps  10 comps  11 comps  12 comps  13 comps
+## CV        1991     1908     1908      1876      1871      1743      1742
+## adjCV     1992     1908     1908      1876      1871      1743      1742
+##        14 comps  15 comps  16 comps  17 comps  18 comps  19 comps
+## CV         1618      1618      1603      1560      1556      1555
+## adjCV      1618      1618      1603      1560      1556      1555
+##        20 comps  21 comps  22 comps  23 comps  24 comps
+## CV         1490      1483      1193      1164      1145
+## adjCV      1490      1483      1163      1164      1144
+## 
+## TRAINING: % variance explained
+##        1 comps  2 comps  3 comps  4 comps  5 comps  6 comps  7 comps
+## X        19.62    28.71    36.19    43.22    49.21    54.97    59.86
+## price    64.18    71.01    74.55    74.73    74.77    75.08    75.30
+##        8 comps  9 comps  10 comps  11 comps  12 comps  13 comps  14 comps
+## X        64.72    69.12      73.4     77.47     81.02     84.37     87.42
+## price    77.35    77.35      78.1     78.23     81.10     81.12     83.72
+##        15 comps  16 comps  17 comps  18 comps  19 comps  20 comps
+## X         90.31     92.79     94.70     96.40     98.03      98.9
+## price     83.73     84.04     84.88     84.94     84.98      86.2
+##        21 comps  22 comps  23 comps  24 comps
+## X         99.58     99.77     99.95    100.00
+## price     86.33     91.20     91.37     91.98</code></pre>
+</div>
 </div>
 <div id="references" class="section level2">
 <h2>References</h2>
 <ul>
 <li><a href="https://www.kaggle.com/shivam2503/diamonds/data">Diamonds Data Set</a></li>
+<li><a href="http://www.milanor.net/blog/performing-principal-components-regression-pcr-in-r/">Performing Principal Components Regression (PCR) in R</a></li>
 </ul>
 </div>
 </div>
