@@ -11,6 +11,7 @@
 
 <meta name="author" content="Duygu Can" />
 
+<meta name="date" content="2017-11-10" />
 
 <title>Travel and Weather</title>
 
@@ -118,7 +119,7 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Travel and Weather</h1>
 <h4 class="author"><em>Duygu Can</em></h4>
-<h4 class="date"><em>10 Kasım 2017</em></h4>
+<h4 class="date"><em>Nov. 10, 2017</em></h4>
 
 </div>
 
@@ -126,18 +127,19 @@ $(document).ready(function () {
 <div id="tidyverse-recap-travel-and-weather---part-i" class="section level3">
 <h3>Tidyverse Recap: Travel and Weather - Part I</h3>
 <p>This is an exercise about weather data of four travel destinations. The data consists of temperature (in Celsius) history of 4 popular travel destinations (NYC, Amsterdam, London and Venice) between November 2015 and October 2017. Raw data is gathered from Weather Underground and it is only for educational purposes.</p>
-<pre class="r"><code>setwd(&quot;C:/Users/Duygu/Google Drive/MEF_BDA/503/TravelWeather&quot;)</code></pre>
+<pre class="r"><code>setwd(&quot;F:/DUYGU/MEF_BDA/503/TravelWeather&quot;)</code></pre>
 <p>I am going to use <em>tidyverse</em> extensively trough out the exercise.</p>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## Loading tidyverse: ggplot2
-## Loading tidyverse: tibble
-## Loading tidyverse: tidyr
-## Loading tidyverse: readr
-## Loading tidyverse: purrr
-## Loading tidyverse: dplyr</code></pre>
-<pre><code>## Conflicts with tidy packages ----------------------------------------------</code></pre>
-<pre><code>## filter(): dplyr, stats
-## lag():    dplyr, stats</code></pre>
+<pre><code>## Warning: package 'tidyverse' was built under R version 3.4.3</code></pre>
+<pre><code>## -- Attaching packages ----------------------------------------------------------------------------------------------------------------------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## &lt;U+221A&gt; ggplot2 2.2.1     &lt;U+221A&gt; purrr   0.2.4
+## &lt;U+221A&gt; tibble  1.3.4     &lt;U+221A&gt; dplyr   0.7.4
+## &lt;U+221A&gt; tidyr   0.7.2     &lt;U+221A&gt; stringr 1.2.0
+## &lt;U+221A&gt; readr   1.1.1     &lt;U+221A&gt; forcats 0.2.0</code></pre>
+<pre><code>## Warning: package 'ggplot2' was built under R version 3.4.3</code></pre>
+<pre><code>## -- Conflicts -------------------------------------------------------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
 <p>Let’s load the data set.</p>
 <pre class="r"><code>load(&quot;travel_weather.RData&quot;)</code></pre>
 </div>
