@@ -1,7 +1,7 @@
 # Duygu Can's Progress Journal 
 
 ## Final (Jan 7)
-In the last part o final exam, I studied gender diversity in academia. [Here](files/Academia.RData) is the data I worked on.
+In the last part o final exam, I studied gender diversity in academia. [Here]("https://github.com/MEF-BDA503/pj-cand/raw/master/files/Academia.Rdata") is the data I worked on.
 
 ## Week 6 (Dec 5)
 
