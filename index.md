@@ -1,5 +1,8 @@
 # Duygu Can's Progress Journal 
 
+## Final (Jan 7)
+In the last part o final exam, I studied gender diversity in academia. [Here](files/Academy.Rdata) is the data I worked on.
+
 ## Week 6 (Dec 5)
 
 As a requirement for HW3 I worked on "diamonds" data set in ggplot2. My main aim was to estimate the price based on other qualifications of this gem.
