@@ -2,7 +2,7 @@
 
 ## Finals Week (Jan 10)
 
-[Here](files/final_DC.html) is my solutions to our final exam [questions].
+[Here](files/final_DC.html) is my solutions to our final exam [questions](files/BDA503_finalExam.html).
 
 ## Finals Week (Jan 7)
 
