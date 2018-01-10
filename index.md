@@ -1,6 +1,11 @@
 # Duygu Can's Progress Journal 
 
+## Finals Week (Jan 10)
+
+[Here](files/final_DC.html) is my solutions to our final exam [questions].
+
 ## Finals Week (Jan 7)
+
 In the last part o final exam, I studied gender diversity in academia. [Here](files/Academia.RData) is the data I worked on. 
 I also studied k-Means algorithm from Unsupervised Learning Course of DataCamp. I even raised my XP to 3790! .)
 
